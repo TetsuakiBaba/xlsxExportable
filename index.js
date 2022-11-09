@@ -1,4 +1,4 @@
-var version = `Last modified: 2022/11/09 12:40:00
+var version = `Last modified: 2022/11/09 13:29:08
 `;
 
 window.onload = (event) => {
@@ -60,9 +60,21 @@ function onSearchKeyChanged(dom) {
     })
 
     if (results.length > 0) {
+        let counts = [0, 0, 0];
         for (let result of results) {
             let q_number = result['問№'];
             buildElement('li', result['自由記述（原文）'], '', '', document.querySelector(`#q${q_number}_answers`));
+            counts[result['問№'] - 1]++;
+        }
+        console.log(counts);
+        for (let i = 0; i < 3; i++) {
+            if (counts[i] == 0) {
+                document.querySelector(`#q${i + 1}_h5`).classList.replace('text-black', 'text-secondary');
+                buildElement('li', '[回答がありませんでした]', '', '', document.querySelector(`#q${i + 1}_answers`));
+            }
+            else {
+                document.querySelector(`#q${i + 1}_h5`).classList.replace('text-secondary', 'text-black');
+            }
         }
         document.querySelector('#classname').innerText = results[0]['授業名'];
         document.querySelector('#classcode').innerText = results[0]['授業コード'];
