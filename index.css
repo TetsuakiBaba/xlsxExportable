@@ -1,3 +1,7 @@
+html {
+    font-size: 14px;
+}
+
 #pdf_element {
     font-family: 'Shippori Mincho', serif;
 }

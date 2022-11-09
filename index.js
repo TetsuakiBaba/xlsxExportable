@@ -1,3 +1,9 @@
+var version = `Last modified: 2022/11/09 12:40:00
+`;
+
+window.onload = (event) => {
+    document.querySelector('#version').innerText = version;
+}
 function buildElement(name_tag, innerHTML, str_class, str_style, element_appended) {
     let element = document.createElement(name_tag);
     if (innerHTML) element.innerHTML = innerHTML;
@@ -23,8 +29,8 @@ input.addEventListener('change', function () {
                     [rows[4][1]]: row[1],
                     [rows[4][2]]: row[2],
                     [rows[4][3]]: row[3],
-                    [rows[5][3]]: row[4],
-                    [rows[6][3]]: row[5],
+                    [rows[4][4]]: row[4],
+                    [rows[4][5]]: row[5],
                 });
             }
             count++;
@@ -58,6 +64,7 @@ function onSearchKeyChanged(dom) {
             let q_number = result['問№'];
             buildElement('li', result['自由記述（原文）'], '', '', document.querySelector(`#q${q_number}_answers`));
         }
+        document.querySelector('#classname').innerText = results[0]['授業名'];
         document.querySelector('#classcode').innerText = results[0]['授業コード'];
         document.querySelector('#profname').innerText = results[0]['主担当教員名'];
     }
