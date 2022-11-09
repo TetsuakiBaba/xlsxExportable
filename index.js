@@ -71,3 +71,28 @@ function onInputTitle(dom) {
     document.querySelector('#title').innerHTML = dom.value;
     console.log(dom.value);
 }
+
+
+
+
+function downloadPDF() {
+    const element = document.querySelector('#pdf_element'); // 対象要素を指定
+    const option = {
+        margin: 1, // 余白
+        filename: `${document.querySelector('#classcode').innerText} ${document.querySelector('#profname').innerText}.pdf`, // ファイル名
+        image: { type: 'png', quality: 1 }, // PDFの生成に使用される画像のタイプとクオリティ
+        html2canvas: { scale: 2, useCORS: true }, // html2canvasで使用される設定を記述。useCORS: trueを設定すると別ドメインの画像を表示できる（サイトによってはできないこともある）
+        jsPDF: { format: 'a4', orientation: 'portrait' }, // jsPDFで使用される設定を記述
+    };
+
+    html2pdf()
+        .from(element)
+        .set(option)
+        .save()
+        .then(() => {
+            // 成功
+        })
+        .catch((e) => {
+            // 失敗
+        });
+}
