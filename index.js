@@ -1,4 +1,4 @@
-var version = `Last modified: 2022/11/09 14:16:53
+var version = `Last modified: 2022/11/09 14:19:48
 `;
 
 window.onload = (event) => {
@@ -102,7 +102,7 @@ function downloadPDF() {
         image: { type: 'png', quality: 1 }, // PDFの生成に使用される画像のタイプとクオリティ
         html2canvas: { scale: 1, useCORS: false }, // html2canvasで使用される設定を記述。useCORS: trueを設定すると別ドメインの画像を表示できる（サイトによってはできないこともある）
         jsPDF: { format: 'a4', orientation: 'portrait' }, // jsPDFで使用される設定を記述
-        pagebreak: { avoid: 'li' }
+        pagebreak: { avoid: ['li', 'h5'] }
     };
 
     html2pdf()
