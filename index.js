@@ -1,4 +1,4 @@
-var version = `Last modified: 2022/11/09 13:29:08
+var version = `Last modified: 2022/11/09 13:50:33
 `;
 
 window.onload = (event) => {
