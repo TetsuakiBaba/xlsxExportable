@@ -23,8 +23,8 @@
     <div class="container">
         <nav class="navbar bg-light">
             <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1"><i class="bi bi-file-earmark-spreadsheet"></i> xlsx exportable</span>
-                <span class="small" id="version">アンケート結果を手早く集約・配布しよう</span>
+                <span class="navbar-brand mb-0 h1"><i class="bi bi-file-earmark-spreadsheet"></i> 授業アンケート結果の自動生成</span>
+                <span class="small" id="version"></span>
             </div>
         </nav>
         <div class="row pt-4">
@@ -66,6 +66,8 @@
                             <label for="formFile" class="form-label">エクセルファイルを読み込ませます。</label>
                             <input class="form-control" type="file" id="input">
                             <p><a href="./mysample.xlsx">サンプルデータをダウンロード</a></p>
+                            <p class="small">
+                                現時点では上記サンプルデータのフォーマットに合わせてエクセルデータを作成してください。より汎用的なデータ読み込みについては開発者にお問い合わせください。</p>
                             <p id="loaded_result">
 
                             </p>
