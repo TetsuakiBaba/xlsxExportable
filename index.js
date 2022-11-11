@@ -1,4 +1,4 @@
-var version = `Last modified: 2022/11/11 15:32:50
+var version = `Last modified: 2022/11/11 15:36:54
 `;
 
 window.onload = (event) => {
@@ -99,7 +99,7 @@ function downloadPDF() {
     const option = {
         margin: 10, // 余白
         filename: `${document.querySelector('#classcode').innerText} ${document.querySelector('#profname').innerText}.pdf`, // ファイル名
-        image: { type: 'png', quality: 1 }, // PDFの生成に使用される画像のタイプとクオリティ
+        //image: { type: 'png', quality: 1 }, // PDFの生成に使用される画像のタイプとクオリティ
         html2canvas: {
             scale: window.devicePixelRatio * 2,
             useCORS: false,
