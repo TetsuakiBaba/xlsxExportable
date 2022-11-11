@@ -1,4 +1,4 @@
-var version = `Last modified: 2022/11/11 12:56:03
+var version = `Last modified: 2022/11/11 13:53:06
 `;
 
 window.onload = (event) => {
@@ -100,14 +100,16 @@ function downloadPDF() {
         margin: 10, // 余白
         filename: `${document.querySelector('#classcode').innerText} ${document.querySelector('#profname').innerText}.pdf`, // ファイル名
         image: { type: 'png', quality: 1 }, // PDFの生成に使用される画像のタイプとクオリティ
-        html2canvas: { scale: 2, useCORS: false }, // html2canvasで使用される設定を記述。useCORS: trueを設定すると別ドメインの画像を表示できる（サイトによってはできないこともある）
+        html2canvas: { scale: window.devicePixelRatio, useCORS: false }, // html2canvasで使用される設定を記述。useCORS: trueを設定すると別ドメインの画像を表示できる（サイトによってはできないこともある）
         jsPDF: { format: 'a4', orientation: 'portrait' }, // jsPDFで使用される設定を記述
         pagebreak: { avoid: ['li', 'h5'] }
     };
 
+    console.log();
+
     html2pdf()
-        .from(element)
         .set(option)
+        .from(element)
         .save()
         .then(() => {
             // 成功
