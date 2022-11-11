@@ -1,4 +1,4 @@
-var version = `Last modified: 2022/11/11 15:27:41
+var version = `Last modified: 2022/11/11 15:32:50
 `;
 
 window.onload = (event) => {
@@ -101,7 +101,7 @@ function downloadPDF() {
         filename: `${document.querySelector('#classcode').innerText} ${document.querySelector('#profname').innerText}.pdf`, // ファイル名
         image: { type: 'png', quality: 1 }, // PDFの生成に使用される画像のタイプとクオリティ
         html2canvas: {
-            scale: window.devicePixelRatio,
+            scale: window.devicePixelRatio * 2,
             useCORS: false,
             scrollY: 0,
         }, // html2canvasで使用される設定を記述。useCORS: trueを設定すると別ドメインの画像を表示できる（サイトによってはできないこともある）
